@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2? family= Josefin+Sans & family= Red+Hat+Display:ital@1 & display=swap');
+.posicion-alerta{
+    color: rgba(0, 0, 0, 0.87);
+    margin: 1em 2em;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    background-color: rgba(66, 66, 66, 0.705);
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: italic;
+}

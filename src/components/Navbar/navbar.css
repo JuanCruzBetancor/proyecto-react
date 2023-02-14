@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.marca{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1em;
+    padding: 0.5em;
+    font-size: 2em;
+    font-style: italic;
+    font-weight: bold;
+    border: solid rgb(15, 15, 15);
+    border-radius: 0.5em;
+    background-color: rgb(168, 170, 153);
+    text-shadow: rgb(255, 255, 255) 3px 2px 2px;
+}
+.carrito{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: solid black;
+    border-radius: 1em;
+    background-color: rgb(168, 170, 153);
+}
+.icono-carrito{
+    padding: 1em;
+}
+.cantidad-carrito{
+    font-weight: bold;
+    margin-right: 1em;
+    padding: 0.1em;
+    font-size: 1.5em;
+    border:solid black;
+    border-radius: 100%;
+    background-color: rgb(30, 172, 30);
+}
