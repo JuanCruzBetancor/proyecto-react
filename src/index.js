@@ -1,11 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Landing from './components/Landing';
+import Navbar from './components/Navbar/Navbar'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Landing />
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+    <Route exact path='/' element= {<Landing />} />
+    <Route exact path='/productos/:id' element={<ItemDetailContainer/> }/>
+    </Routes>
+    
+    </BrowserRouter>
   </React.StrictMode>
 );
 

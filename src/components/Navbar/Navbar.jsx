@@ -1,6 +1,7 @@
 import React from 'react'
-import CardWidget from '../CardWidget/CardWidget'
-import './navbar.css'
+import CartWidget from '../CartWidget/CartWidget'
+import './NavBar.css'
+import { Link } from 'react-router-dom'
 
 
 const navbar = () => {
@@ -8,7 +9,7 @@ return (
     <>
     <nav className="navbar navbar-expand-lg bg-dark">
     <div className="container-fluid">
-    <a className="navbar-brand marca" href="#">BetanSport</a>
+    <Link to={'/'} className="navbar-brand marca">BetanSport</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
     </button>
@@ -17,7 +18,7 @@ return (
         <button className="btn btn-outline-success" type="submit">Buscar</button>
     </form>
         <div>
-            <CardWidget />
+            <CartWidget />
         </div>
     </div>
     

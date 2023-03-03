@@ -1,6 +1,6 @@
 import React from 'react'
 import Carrito from '../../assets/multimedia/shoppingcart_80945.png'
-const CardWidget = () => {
+const CartWidget = () => {
 return (
     <>
     <div className='carrito'>
@@ -11,4 +11,4 @@ return (
 )
 }
 
-export default CardWidget
+export default CartWidget
