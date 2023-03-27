@@ -12,4 +12,53 @@
     align-items: center;
     padding: 2em;
     margin: 2em;
+    border: solid gray;
+    border-radius: 1em;
+}
+.descripcion{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoria-talle{
+    color: rgb(94, 6, 153);
+    padding: 1em;
+    border: solid rgb(140, 0, 255);
+    text-align: center;
+}
+
+.precio{
+    padding: 1em;
+    color:rgb(94, 6, 153);
+    border: solid rgb(140, 0, 255);
+    text-align: center;
+}
+
+.boton-categoria{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.botones-categoria{
+    margin: 1em;
+}
+
+.imagen-detalle{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
+}
+
+.imagen{
+    max-width: 16em;
+    max-height: 16em;
 }

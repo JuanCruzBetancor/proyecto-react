@@ -24,17 +24,21 @@
     margin: 1em;
     background-color: rgb(232, 242, 250);
     border: solid;
-    border-color: rgb(93, 255, 201);
+    
 }
 
 .card{
     width: 14em;
     padding: 1em;
     margin: 1em;
-    background-color: rgb(232, 242, 250);
-    border: solid;
-    border-color: rgb(93, 255, 201);
+    background-color: rgba(66, 66, 66, 0.705);
+    border-color: rgb(140, 0, 255);
 }
+.elementos{
+    color: rgb(140, 0, 255);
+    font-weight: 700;
+}
+
 
 #producto-contenedor{
     margin: 2em;
@@ -54,4 +58,11 @@
 
 .botones{
     margin: 1em;
+}
+.containerPruduct{
+    display: flex;
+    flex-direction: row;
+}
+img{
+    border-radius: 1em;
 }

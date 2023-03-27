@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.productos-carrito{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.totales-carrito{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: solid rgb(140, 0, 255);
+    border-radius: 1em;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    margin: 2em;
+}
+.alertCart{
+    text-align: center;
+}
+.botones-carrito{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    margin: 1em;
+}
+.formulario{
+    margin: 2em;
+    padding: 2em;
+    border: solid rgb(140, 0, 255);
+    border-radius: 1em;
+}
+
+.catalogo-boton{
+    padding: 2em;
+    margin: 2em;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.catalogo{
+    margin: 1em;
+    
+}
+.boton-catalogo{
+    margin: 1em;
+    padding: 1.5em;
+}
