@@ -120,7 +120,7 @@ const CartElement = () => {
                     <h5 value={buyerTotal}onChange={(e)=>setBuyerTotal(e.target.value)}>Precio Total: ${getTotal()}</h5>
                 </div>
                 <div className='botones-carrito'>
-                        <button type="button" class="btn btn-danger">Vaciar Carrito</button>
+                        <button type="clear" class="btn btn-danger" onClick={() => clearCart()}>Vaciar Carrito</button>
                         <button type="submit" class="btn btn-success">Finalizar Compra</button>
                     </div>
                 </form>

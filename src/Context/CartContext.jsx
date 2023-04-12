@@ -38,10 +38,18 @@ const CartProvider = (props) =>{
         }
     }; 
     //eliminar un producto del carrito
-    const removeFromCart = (id) =>{
-        const newCart = cart.filter((items) => items.id !== id )
-        setCart(newCart)
-    }; 
+    const removeFromCart = (id) => {
+        const updatedCart = [...cart]; 
+        const itemIndex = updatedCart.findIndex(item => item.id === id); 
+        if (itemIndex !== -1) {
+        if (updatedCart[itemIndex].quantity > 1) {
+            updatedCart[itemIndex].quantity = updatedCart[itemIndex].quantity - 1;
+        } else {
+            updatedCart.splice(itemIndex, 1);
+        }
+        setCart(updatedCart); 
+        }
+    };
     //obtener la cantidad total del carrito
     const getTotalQuantity = () =>{
         let cant = 0
