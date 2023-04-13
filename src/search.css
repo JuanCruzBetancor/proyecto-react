@@ -13,3 +13,22 @@
     margin: 2em;
     padding: 2em;
 }
+
+.alert-search{
+    padding: 2em;
+    margin: 2em;
+}
+
+.boton-search{
+    padding: 1em;
+}
+
+.contenedorSearch{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    margin: 1em;
+}
