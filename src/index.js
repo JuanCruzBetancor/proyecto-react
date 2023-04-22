@@ -4,6 +4,7 @@ import Landing from './components/Landing';
 import Navbar from './components/Navbar/Navbar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import FiltrarCategoria from './components/FiltrarCategoria/FiltrarCategoria'
 // import CartWidget from './components/CartWidget/CartWidget';
 import { initializeApp } from "firebase/app";
 import CartProvider from './Context/CartContext';
@@ -33,6 +34,7 @@ root.render(
       <Route exact path='/' element= {<Landing />} />
       <Route exact path='/productos/:id' element={<ItemDetailContainer/> }/>
       <Route exact path='/cart' element={<CartElement />} />
+      <Route exact path="/filtrado/:category" element={<FiltrarCategoria/>}/>
       <Route exact path='/search/:searchValue' element={<SearchElements/>} />
       </Routes>
       <Footer/>

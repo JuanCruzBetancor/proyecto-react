@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './item.css'
 import ItemList from '../ItemList/ItemList'
 import {collection, getDocs, getFirestore} from 'firebase/firestore'
+import Filtrar from '../FiltrarCategoria/Filtrar'
 
 
 
@@ -23,10 +24,11 @@ useEffect(()=>{
 
 return (
     <>
+        
         <div className="alert alert-info posicion-alerta" role="alert">
             {props.greeting}
         </div>
-        
+        <Filtrar/>
             <ItemList items={items}/>
         
     </>

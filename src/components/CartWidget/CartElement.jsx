@@ -3,6 +3,7 @@ import { CartContext } from '../../Context/CartContext'
 import {addDoc, collection, docs, getDocs, getFirestore} from 'firebase/firestore'
 import './cart.css'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2';
 
 const CartElement = () => {
     const {cart, clearCart, isInCart,  removeFromCart, getTotalQuantity, getTotal} = useContext(CartContext)
@@ -28,26 +29,39 @@ const CartElement = () => {
     const db = getFirestore()
     const orderCollection = collection(db, 'orders')
     
-    const handlerSubmit = () =>{
-        
-        const order ={
-            buyer:{
+        const handlerSubmit = (e) => {
+            e.preventDefault();
+
+            const order = {
+                buyer: {
                 nombre: buyerNombre,
                 apellido: buyerApellido,
                 email: buyerEmail,
                 direccion: buyerDireccion,
                 ciudad: buyerCiudad,
                 codigoPostal: buyerCodigoPostal
-            },
-            items:  buyerItems,
-            total: buyerTotal,
-        } 
-        addDoc(orderCollection, order)
-        .then((docRef) => {
-            console.log(docRef)
-        })
-    }
-    
+                },
+                items: buyerItems,
+                total: buyerTotal,
+            };
+            addDoc(orderCollection, order).then((docRef) => {
+                console.log(docRef)
+                Swal.fire({
+                    icon: 'succes',
+                    title: 'Compra realizada con exito!!',
+                    text: `Su codigo de orden es: ${docRef.id}`,
+                    footer: 'Gracias por su compra lo esperamos pronto'
+                }).then(() => {
+                    window.location.reload();
+                    window.location.href = '/';
+                });
+            });
+        };
+                
+
+
+
+
     if (cart.length === 0) {
         return (
             <>
@@ -90,29 +104,30 @@ const CartElement = () => {
             </div>
             
         ))}
-            <form className='formulario' onSubmit={handlerSubmit()}>
+        
+            <form className='formulario form-control' onSubmit={handlerSubmit}>
                 <div class="row">
                     <div class="col-6">
-                        <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" value={buyerNombre} onChange={(e) => setBuyerNombre(e.target.value) }/>
+                        <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" value={buyerNombre} onChange={(e) => setBuyerNombre(e.target.value) } required/>
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" value={buyerApellido} onChange={(e) => setBuyerApellido(e.target.value) }/>
+                        <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" value={buyerApellido} onChange={(e) => setBuyerApellido(e.target.value) } required/>
                     </div>
                 </div>
                 <div className='row'>
                 <div class="col-md-6">
-                    <input type="email" class="form-control" id="inputEmail4"placeholder="Email" aria-label="Email" value={buyerEmail} onChange={(e) => setBuyerEmail(e.target.value) }/>
+                    <input type="email" class="form-control" id="inputEmail4"placeholder="Email" aria-label="Email" value={buyerEmail} onChange={(e) => setBuyerEmail(e.target.value) } required/>
                 </div>
                 <div class="col-6">
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Direccion"aria-label="Direccion" value={buyerDireccion} onChange={(e) => setBuyerDireccion(e.target.value) }/>
+                    <input type="text" class="form-control" id="validationDefault01" placeholder="Direccion"aria-label="Direccion" value={buyerDireccion} onChange={(e) => setBuyerDireccion(e.target.value) } required/>
                 </div>
                 </div>
                 <div className='row'>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="inputCity" placeholder="Ciudad" aria-label="Ciudad" value={buyerCiudad} onChange={(e) => setBuyerCiudad(e.target.value) }/>
+                    <input type="text" class="form-control" id="inputCity" placeholder="Ciudad" aria-label="Ciudad" value={buyerCiudad} onChange={(e) => setBuyerCiudad(e.target.value) } required/>
                 </div>
                 <div class="col-md-2">
-                    <input type="number" class="form-control" id="inputZip" placeholder="Código postal" aria-label="Código postal" value={buyerCodigoPostal} onChange={(e) => setBuyerCodigoPostal(e.target.value) }/>
+                    <input type="number" class="form-control" id="inputZip" placeholder="Código postal" aria-label="Código postal" value={buyerCodigoPostal} onChange={(e) => setBuyerCodigoPostal(e.target.value) } required/>
                 </div>
                 </div>
                 <div className='totales-carrito'>
@@ -120,13 +135,12 @@ const CartElement = () => {
                     <h5 value={buyerTotal}onChange={(e)=>setBuyerTotal(e.target.value)}>Precio Total: ${getTotal()}</h5>
                 </div>
                 <div className='botones-carrito'>
-                        <button type="clear" class="btn btn-danger" onClick={() => clearCart()}>Vaciar Carrito</button>
                         <button type="submit" class="btn btn-success">Finalizar Compra</button>
                     </div>
                 </form>
     </>
-    )
-    
+    );
+            
 }
 
 export default CartElement

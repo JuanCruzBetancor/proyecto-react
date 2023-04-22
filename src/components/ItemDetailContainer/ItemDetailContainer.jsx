@@ -4,6 +4,7 @@ import './style.css'
 import {doc, getDoc, getFirestore} from 'firebase/firestore' 
 import { CartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
+import Filtrar from '../FiltrarCategoria/Filtrar'
 
 const ItemDetail = () => {
     const {addToCart} = useContext(CartContext)
@@ -23,10 +24,12 @@ const ItemDetail = () => {
     
     
     return (
+        <>
+        <Filtrar/>
         <div className='contenedor'>
             {
                 data ?
-                <>
+                
                 <div className='class="card descripcion" style="width: 18rem;"'>
                 <div className='imagen-detalle'>
                     <img className='imagen' src= {data.image} alt={data.title} />
@@ -43,7 +46,6 @@ const ItemDetail = () => {
                     <button type="button" className='btn btn-success botones-categoria' onClick={() => addToCart(data, 1)}>Agregar al carrito</button>
                 </div>
                 </div>
-                </>
                 :
                 <div class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
@@ -53,6 +55,7 @@ const ItemDetail = () => {
                 
             }
         </div>
+        </>
 )
 }
 

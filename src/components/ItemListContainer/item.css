@@ -66,3 +66,15 @@
 img{
     border-radius: 1em;
 }
+.botones-filtrado{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-filtro{
+    margin: 1em;
+    padding: 1em;
+}
